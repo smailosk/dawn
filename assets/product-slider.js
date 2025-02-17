@@ -101,6 +101,19 @@ document.addEventListener('DOMContentLoaded', function () {
     window.addEventListener('mouseup', stopDragging);
     window.addEventListener('touchend', stopDragging);
 
+    function cleanup() {
+      track.removeEventListener('mousedown', startDragging);
+      track.removeEventListener('touchstart', startDragging);
+      window.removeEventListener('mousemove', doDrag);
+      window.removeEventListener('touchmove', doDrag);
+      window.removeEventListener('mouseup', stopDragging);
+      window.removeEventListener('touchend', stopDragging);
+    }
+
+    if (Shopify.designMode) {
+      document.addEventListener('shopify:section:unload', cleanup);
+    }
+
     let resizeTimer;
     window.addEventListener('resize', () => {
       clearTimeout(resizeTimer);

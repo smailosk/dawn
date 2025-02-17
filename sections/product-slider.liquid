@@ -29,7 +29,7 @@
 
   <div class="product-slider__container">
     <div class="product-slider__track">
-      {% for product in collections.all.products %}
+      {%- for product in collections.bestsellers.products limit: 10 %}
         {% render 'product-card', product: product %}
       {% endfor %}
     </div>
