@@ -197,12 +197,17 @@
         "padding_top": 36,
         "padding_bottom": 36
       }
+    },
+    "product_slider": {
+    "type": "product-slider",
+    "settings": {}
     }
   },
   "order": [
     "image_banner",
     "rich_text",
     "featured_collection",
+    "product_slider",
     "collage",
     "video",
     "multicolumn"

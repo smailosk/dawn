@@ -1,0 +1,37 @@
+{% comment %}
+  Product Slider Section
+{% endcomment %}
+
+<section class="product-slider">
+  <div class="product-slider__header">
+    <h3>BESTSELLERS</h3>
+    <div class="product-slider__buttons">
+      <button class="slider-prev" type="button">
+        <img
+          src="{{ 'icon-arrow-left.svg' | asset_url }}"
+          class="icon icon--left"
+          alt="Previous"
+          width="24"
+          height="24"
+        >
+      </button>
+      <button class="slider-next" type="button">
+        <img
+          src="{{ 'icon-arrow-right.svg' | asset_url }}"
+          class="icon icon--right"
+          alt="Next"
+          width="24"
+          height="24"
+        >
+      </button>
+    </div>
+  </div>
+
+  <div class="product-slider__container">
+    <div class="product-slider__track">
+      {% for product in collections.all.products %}
+        {% render 'product-card', product: product %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
